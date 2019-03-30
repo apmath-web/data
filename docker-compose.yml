@@ -3,8 +3,39 @@ networks:
   bridge:
     driver: bridge
 services:
+  expenses:
+    build:
+      context: ./expenses
+    container_name: expenses
+    depends_on:
+      - db
+      - clients
+    ports:
+      - "8081:8080"
+    environment:
+      - DB_USER=test
+      - DB_PASSWORD=test
+      - DB_HOST=database
+      - CLIENTS_PORT=8080
+    networks:
+      - bridge
+  currency:
+    build:
+      context: ./currency
+    container_name: currency
+    depends_on:
+      - db
+    ports:
+      - "8082:8080"
+    environment:
+      - DB_USER=test
+      - DB_PASSWORD=test
+      - DB_HOST=database
+    networks:
+      - bridge
   clients:
-    image: "clients"
+    build:
+      context: ./clients
     container_name: clients
     depends_on:
       - db
