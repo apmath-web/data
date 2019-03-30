@@ -19,4 +19,5 @@ before_script:
   - git submodule update --init --recursive --jobs 7
 script:
   - docker-compose up  --build -d
+  - docker ps -a
   - docker-compose down
