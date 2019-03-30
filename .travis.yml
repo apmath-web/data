@@ -7,3 +7,5 @@ jdk:
   - openjdk8
 git:
   submodules: true
+script:
+  - git submodule update --init --recursive --jobs 7
