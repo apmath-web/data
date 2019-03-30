@@ -7,8 +7,9 @@ jdk:
   - openjdk8
 git:
   submodules: true
+sudo: required
 before_script:
   - git submodule update --init --recursive --jobs 7
-  - ./start.sh
+  - sudo ./start.sh
 script:
   - docker-compose up
