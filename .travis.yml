@@ -1,0 +1,9 @@
+language:
+  - java
+  - go
+go:
+  - "1.11.x"
+jdk:
+  - openjdk8
+git:
+  submodules: true
