@@ -10,6 +10,8 @@ git:
 sudo: required
 before_script:
   - git submodule update --init --recursive --jobs 7
-  - sudo ./start.sh
+  - chmod a+x start.sh
+  - ./start.sh
 script:
   - docker-compose up
+  - docker-compose down
