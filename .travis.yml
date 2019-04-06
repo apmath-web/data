@@ -16,7 +16,7 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 before_script:
-  - git submodule update --init --recursive --jobs 7
+  - git submodule foreach git pull origin dev
 script:
   - docker-compose up  --build -d
   - docker ps -a
