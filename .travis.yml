@@ -1,0 +1,23 @@
+language:
+  - java
+  - go
+go:
+  - "1.11.x"
+jdk:
+  - openjdk8
+git:
+  submodules: true
+sudo: required
+env:
+  - DOCKER_COMPOSE_VERSION=1.24.0
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+before_script:
+  - git submodule foreach git pull origin dev
+script:
+  - docker-compose up  --build -d
+  - docker ps -a
+  - docker-compose down

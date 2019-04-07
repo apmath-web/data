@@ -1,0 +1,21 @@
+[submodule "clients"]
+	path = clients
+	url = https://github.com/apmath-web/clients.git
+[submodule "expenses"]
+	path = expenses
+	url = https://github.com/apmath-web/expenses.git
+[submodule "currency"]
+	path = currency
+	url = https://github.com/apmath-web/currency.git
+[submodule "applications"]
+	path = applications
+	url = https://github.com/apmath-web/applications.git
+[submodule "loans"]
+	path = loans
+	url = https://github.com/apmath-web/loans.git
+[submodule "calculations"]
+	path = calculations
+	url = https://github.com/apmath-web/calculations.git
+[submodule "interests"]
+	path = interests
+	url = https://github.com/apmath-web/interests.git
