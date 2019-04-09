@@ -16,6 +16,7 @@ The database migrations and database docker image
 
 ## Управление миграциями
 Для запуска процедуры миграции необходимо выполнить: `docker-compose run migrate COMMAND`
+
 Где `COMMAND` одно из 
 - new       # generate a new migration file
 - up        # create the database (if it does not already exist) and run any pending migrations
@@ -34,6 +35,7 @@ The database migrations and database docker image
 
 ## Code style
 Придерживаемся https://www.sqlstyle.guide/
+
 С некоторыми изменениями:
 - id в качестве идентифицирующего поля в таблице
 - именование всех сущностей - underscore_case
