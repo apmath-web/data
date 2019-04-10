@@ -29,7 +29,7 @@ The database migrations and database docker image
 Пример создания новой миграции:
 `docker-compose run migrate new create_clients_table`
 
-Файл создается под пользователем эксплуатирующим docker, поэтому есть ненулевая вероятность что после создания будет необходимо поменять права, например: `sudo chown jumper:jumper sql/20190409181921_create_clients_table.sql`
+Файл создается под пользователем эксплуатирующим docker, поэтому есть ненулевая вероятность что после создания будет необходимо поменять владельца, например: `sudo chown jumper:jumper sql/20190409181921_create_clients_table.sql`
 
 Все подробности тут https://github.com/amacneil/dbmate
 
