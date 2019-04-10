@@ -47,6 +47,17 @@ services:
       - DB_HOST=database
     networks:
       - bridge
+  migrate:
+    image: amacneil/dbmate
+    container_name: migrate
+    depends_on:
+      - db
+    volumes:
+      - ./sql:/db/migrations
+    environment:
+      - DATABASE_URL=postgresql://test:test@database:5432/test?sslmode=disable
+    networks:
+      - bridge
   db:
     image: postgres
     container_name: database
