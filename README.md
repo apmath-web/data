@@ -5,7 +5,7 @@ The database migrations and database docker image
 - клонировать репозиторий: `git clone https://github.com/apmath-web/data`
 - забрать репозитории сабмодулей: `git submodule update --init --recursive`
 - обновить сабмодули: `git submodule foreach git pull origin dev`
-- закомитить: `git commit -a'
+- закомитить: `git commit -a`
 - запушить: `git push origin master`
 
 ## Как запустить все систему
