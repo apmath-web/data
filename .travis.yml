@@ -18,8 +18,8 @@ before_install:
 before_script:
   - git submodule foreach git pull origin dev
 script:
-  - docker-compose up  --build -d
+  - docker-compose up --build -d
   - docker ps -a
-  - docker-compose run migrate
-  - x=`ls sql | wc -l`; while [ $x -gt 0 ]; do docker-compose run migrate down; x=$(($x-1)); done
+  - docker-compose run migrate migrate
+  - 'x=`ls sql | wc -l`; while [ $x -gt 0 ]; do docker-compose run migrate down; x=$(($x-1)); done'
   - docker-compose down
