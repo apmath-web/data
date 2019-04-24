@@ -6,7 +6,7 @@ CREATE TABLE "jobs" (
     "client_id" INT     NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (client_id) REFERENCES clients (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    UNIQUE ("name", "wage", "client_id")
+    UNIQUE ("client_id", "name", "wage")
 );
 
 -- migrate:down
