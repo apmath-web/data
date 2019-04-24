@@ -10,12 +10,12 @@ ALTER TABLE clients ADD CONSTRAINT marital_status_is_correct CHECK ("marital_sta
 ALTER TABLE clients ADD CONSTRAINT children_number_positive CHECK ("children" >= 0);
 
 -- migrate:down
+ALTER TABLE clients DROP CONSTRAINT children_number_positive;
+ALTER TABLE clients DROP CONSTRAINT marital_status_is_correct;
+ALTER TABLE clients DROP CONSTRAINT sex_is_correct;
 ALTER TABLE clients DROP COLUMN "first_name";
 ALTER TABLE clients DROP COLUMN "last_name";
 ALTER TABLE clients DROP COLUMN "birth_date";
 ALTER TABLE clients DROP COLUMN "sex";
 ALTER TABLE clients DROP COLUMN "marital_status";
 ALTER TABLE clients DROP COLUMN "children";
-ALTER TABLE clients DROP CONSTRAINT children_number_positive;
-ALTER TABLE clients DROP CONSTRAINT marital_status_is_correct;
-ALTER TABLE clients DROP CONSTRAINT sex_is_correct;
