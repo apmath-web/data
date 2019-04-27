@@ -17,9 +17,20 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 before_script:
   - git submodule foreach git pull origin dev
+  - cd tests
+  - wget https://dl.bintray.com/ptrthomas/karate/karate-0.9.0.RC2.jar
+  - mv karate-0.9.0.RC2.jar karate.jar
+  - cd ..
 script:
   - docker-compose up --build -d
-  - docker ps -a
+  - docker-compose down
   - docker-compose run migrate migrate
-  - 'x=`ls sql | wc -l`; while [ $x -gt 0 ]; do docker-compose run migrate down; x=$(($x-1)); done'
+  - sleep 10
+  - docker-compose up -d
+  - cd tests
+  - java -jar karate.jar create-client-test.feature
+  - java -jar karate.jar get-client-test.feature
+  - java -jar karate.jar update-clietn-test.feature
+  - cd ..
+  - 'x=`ls data/sql | wc -l`; while [ $x -gt 0 ]; do docker-compose run migrate down; x=$(($x-1)); done'
   - docker-compose down
