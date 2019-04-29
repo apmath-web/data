@@ -45,4 +45,4 @@ The database migrations and database docker image
 - client 8080
 - currency 8081
 - expenses 8082
-
+- loans 8083
