@@ -1,14 +1,14 @@
 -- migrate:up
 CREATE TABLE "payments" (
-    "id"                 SERIAL NOT NULL,
-    "date"               TEXT   NOT NULL,
-    "amount"             INT    NOT NULL,
-    "percent"            INT    NOT NULL,
-    "body"               INT    NOT NULL,
-    "type"               TEXT   NOT NULL,
-    "remainCreditBody"   INT    NOT NULL,
-    "fullEarlyRepayment" INT    NOT NULL,
-    CONSTRAINT type_is_correct CHECK ("type" IN ('regular', 'early')),
+    "id"                  SERIAL    NOT NULL,
+    "date"                TIMESTAMP NOT NULL,
+    "amount"              BIGINT    NOT NULL,
+    "percent"             INT       NOT NULL,
+    "body"                BIGINT    NOT NULL,
+    "type"                TEXT      NOT NULL,
+    "remain_credit_body"  BIGINT    NOT NULL,
+    "fullEarly_repayment" BIGINT    NOT NULL,
+    CONSTRAINT payments_type_check CHECK ("type" IN ('regular', 'early')),
     PRIMARY KEY (id)
 );
 
