@@ -42,7 +42,7 @@ The database migrations and database docker image
 - все SQL ключевые слова UPPER CASE
 
 ## Порты сервисов
-- client 8080
+- clients 8080
 - currency 8081
 - expenses 8082
 - loans 8083
