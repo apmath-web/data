@@ -46,3 +46,5 @@ The database migrations and database docker image
 - currency 8081
 - expenses 8082
 - loans 8083
+- applications 8084
+- calculations 8085
