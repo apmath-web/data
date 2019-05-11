@@ -19,8 +19,8 @@ services:
       - DB_PASSWORD=test
       - DB_HOST=database
       - CLIENT_HOST=clients
-     # - APPLICATIONS_HOST=clients
-     # - CALCULATIONS_HOST=clients
+      # - APPLICATIONS_HOST=applications
+      # - CALCULATIONS_HOST=calculations
     networks:
       - bridge
   expenses:
