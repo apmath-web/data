@@ -3,6 +3,14 @@ networks:
   bridge:
     driver: bridge
 services:
+  calculations:
+    build:
+      context: ./calculations
+    container_name: calculations
+    ports:
+      - "8085:8080"
+    networks:
+      - bridge
   loans:
     build:
       context: ./loans
@@ -11,7 +19,7 @@ services:
       - db
       - clients
       # - applications
-      # - calculations
+      - calculations
     ports:
       - "8083:8080"
     environment:
@@ -20,7 +28,7 @@ services:
       - DB_HOST=database
       - CLIENT_HOST=clients
       # - APPLICATIONS_HOST=applications
-      # - CALCULATIONS_HOST=calculations
+      - CALCULATIONS_HOST=calculations
     networks:
       - bridge
   expenses:
