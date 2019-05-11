@@ -18,9 +18,9 @@ services:
       - DB_USER=test
       - DB_PASSWORD=test
       - DB_HOST=database
-      - CLIENTS_PORT=8080
-      - APPLICATIONS_PORT=8084
-      - CALCULATIONS_PORT=8085
+      - CLIENT_HOST=clients
+      # - APPLICATIONS_HOST=applications
+      # - CALCULATIONS_HOST=calculations
     networks:
       - bridge
   expenses:
