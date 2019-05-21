@@ -57,6 +57,7 @@ services:
       - DB_PORT=5432
       - DB_NAME=test
       - CLIENTS_HOST=clients
+      - CLIENTS_PORT=8080
     networks:
       - bridge
   currency:
