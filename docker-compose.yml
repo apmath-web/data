@@ -3,6 +3,16 @@ networks:
   bridge:
     driver: bridge
 services:
+  applications:
+    build:
+      context: ./applications
+    container_name: applications
+    ports:
+      - "8084:8080"
+    environment:
+      - EXPENSES_HOST=expenses
+    networks:
+      - bridge
   calculations:
     build:
       context: ./calculations
@@ -18,7 +28,7 @@ services:
     depends_on:
       - db
       - clients
-      # - applications
+      - applications
       - calculations
     ports:
       - "8083:8080"
@@ -26,8 +36,8 @@ services:
       - DB_USER=test
       - DB_PASSWORD=test
       - DB_HOST=database
-      - CLIENT_HOST=clients
-      # - APPLICATIONS_HOST=applications
+      - CLIENTS_HOST=clients
+      - APPLICATIONS_HOST=applications
       - CALCULATIONS_HOST=calculations
     networks:
       - bridge
@@ -46,7 +56,7 @@ services:
       - DB_HOST=database
       - DB_PORT=5432
       - DB_NAME=test
-      - CLIENT_HOST=clients
+      - CLIENTS_HOST=clients
     networks:
       - bridge
   currency:
