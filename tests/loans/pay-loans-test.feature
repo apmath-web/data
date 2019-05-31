@@ -44,7 +44,7 @@ Feature: Create client integration test
     And request payments[0]
     When method post
     Then status 200
-    And match response == { paymentExecutedAt:payments[0].date }
+    And match response == { paymentExecutedAt:#string }
 
     #2 payment
     Given url 'http://localhost:8083/v1'
@@ -54,7 +54,7 @@ Feature: Create client integration test
     And request payments[1]
     When method post
     Then status 200
-    And match response == { paymentExecutedAt:payments[0].date }
+    And match response == { paymentExecutedAt:#string }
 
     #3 payment
     Given url 'http://localhost:8083/v1'
@@ -64,7 +64,7 @@ Feature: Create client integration test
     And request payments[2]
     When method post
     Then status 200
-    And match response == { paymentExecutedAt:payments[0].date }
+    And match response == { paymentExecutedAt:#string }
 
     #4 payment
     Given url 'http://localhost:8083/v1'
@@ -74,7 +74,7 @@ Feature: Create client integration test
     And request payments[3]
     When method post
     Then status 200
-    And match response == { paymentExecutedAt:payments[0].date }
+    And match response == { paymentExecutedAt:#string }
 
     #5 payment
     Given url 'http://localhost:8083/v1'
@@ -84,7 +84,7 @@ Feature: Create client integration test
     And request payments[4]
     When method post
     Then status 200
-    And match response == { paymentExecutedAt:payments[0].date }
+    And match response == { paymentExecutedAt:#string }
 
     #6 payment
     Given url 'http://localhost:8083/v1'
@@ -94,7 +94,7 @@ Feature: Create client integration test
     And request payments[5]
     When method post
     Then status 200
-    And match response == { paymentExecutedAt:payments[0].date }
+    And match response == { paymentExecutedAt:#string }
 
     #Check if loan was payed of
     Given url 'http://localhost:8083/v1'
