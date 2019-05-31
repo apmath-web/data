@@ -33,11 +33,12 @@ Feature: Create client integration test
     And request {"applicationId":4,"amount":1000000,"date":"2019-01-01","term":6,"currency":"RUB"}
     When method post
     Then status 200
+    And def loanId = response.loanId
     And match response == { loanId:1 }
 
     #1 payment
     Given url 'http://localhost:8083/v1'
-    And path id
+    And path loanId
     And path "payment"
     And header clientId = id
     And request payments[0]
@@ -47,7 +48,7 @@ Feature: Create client integration test
 
     #2 payment
     Given url 'http://localhost:8083/v1'
-    And path id
+    And path loanId
     And path "payment"
     And header clientId = id
     And request payments[1]
@@ -57,7 +58,7 @@ Feature: Create client integration test
 
     #3 payment
     Given url 'http://localhost:8083/v1'
-    And path id
+    And path loanId
     And path "payment"
     And header clientId = id
     And request payments[2]
@@ -67,7 +68,7 @@ Feature: Create client integration test
 
     #4 payment
     Given url 'http://localhost:8083/v1'
-    And path id
+    And path loanId
     And path "payment"
     And header clientId = id
     And request payments[3]
@@ -77,7 +78,7 @@ Feature: Create client integration test
 
     #5 payment
     Given url 'http://localhost:8083/v1'
-    And path id
+    And path loanId
     And path "payment"
     And header clientId = id
     And request payments[4]
@@ -87,7 +88,7 @@ Feature: Create client integration test
 
     #6 payment
     Given url 'http://localhost:8083/v1'
-    And path id
+    And path loanId
     And path "payment"
     And header clientId = id
     And request payments[5]
