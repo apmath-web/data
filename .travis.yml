@@ -28,9 +28,10 @@ script:
   - sleep 10
   - docker-compose up -d
   - cd tests
-  - java -jar karate.jar create-client-test.feature
-  - java -jar karate.jar get-client-test.feature
-  - java -jar karate.jar update-client-test.feature
+  - java -jar karate.jar clients/create-client-test.feature
+  - java -jar karate.jar clients/get-client-test.feature
+  - java -jar karate.jar clients/update-client-test.feature
+  - java -jar karate.jar loans/pay-loans-test.feature
   - cd ..
   - 'x=`ls data/sql | wc -l`; while [ $x -gt 0 ]; do docker-compose run migrate down; x=$(($x-1)); done'
   - docker-compose down
