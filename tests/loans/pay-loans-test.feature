@@ -98,7 +98,7 @@ Feature: Create client integration test
 
     #Check if loan was payed of
     Given url 'http://localhost:8083/v1'
-    And param client = 2
+    And param client = id
     And header clientId = id
     And header service = 'true'
     When method get
