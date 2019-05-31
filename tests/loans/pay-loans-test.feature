@@ -17,7 +17,7 @@ Feature: Create client integration test
     And request {"firstName":"A","lastName":"B","birthDate":"2005-05-30","passport":{"series":9999,"number":999999},"jobs":[],"sex":"male","maritalStatus":"single","children":0}
     When method post
     Then status 201
-    And match response == { id:1 }
+    And match response == { id:#number }
 
     #create 2nd client
     Given url 'http://localhost:8080/v1'
@@ -32,7 +32,7 @@ Feature: Create client integration test
     And request {"applicationId":4,"amount":1000000,"date":"2019-01-01","term":6,"currency":"RUB"}
     When method post
     Then status 200
-    And match response == { id:#number }
+    And match response == { id:1 }
 
     #1 payment
     Given url 'http://localhost:8083/v1'
