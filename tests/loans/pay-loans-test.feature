@@ -29,6 +29,7 @@ Feature: Create client integration test
 
     #create loan
     Given url 'http://localhost:8083/v1'
+    And header clientId = id
     And request {"applicationId":4,"amount":1000000,"date":"2019-01-01","term":6,"currency":"RUB"}
     When method post
     Then status 200
@@ -38,6 +39,7 @@ Feature: Create client integration test
     Given url 'http://localhost:8083/v1'
     And path id
     And path "payment"
+    And header clientId = id
     And request payments[0]
     When method post
     Then status 200
@@ -47,6 +49,7 @@ Feature: Create client integration test
     Given url 'http://localhost:8083/v1'
     And path id
     And path "payment"
+    And header clientId = id
     And request payments[1]
     When method post
     Then status 200
@@ -56,6 +59,7 @@ Feature: Create client integration test
     Given url 'http://localhost:8083/v1'
     And path id
     And path "payment"
+    And header clientId = id
     And request payments[2]
     When method post
     Then status 200
@@ -65,6 +69,7 @@ Feature: Create client integration test
     Given url 'http://localhost:8083/v1'
     And path id
     And path "payment"
+    And header clientId = id
     And request payments[3]
     When method post
     Then status 200
@@ -74,6 +79,7 @@ Feature: Create client integration test
     Given url 'http://localhost:8083/v1'
     And path id
     And path "payment"
+    And header clientId = id
     And request payments[4]
     When method post
     Then status 200
@@ -83,6 +89,7 @@ Feature: Create client integration test
     Given url 'http://localhost:8083/v1'
     And path id
     And path "payment"
+    And header clientId = id
     And request payments[5]
     When method post
     Then status 200
@@ -91,6 +98,8 @@ Feature: Create client integration test
     #Check if loan was payed of
     Given url 'http://localhost:8083/v1'
     And param client = 2
+    And header clientId = id
+    And header service = 'true'
     When method get
     Then status 200
     And match response.loans[0].completed == true
