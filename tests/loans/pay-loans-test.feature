@@ -4,12 +4,12 @@ Feature: Create client integration test
     * configure headers = { 'Content-Type': 'application/json' }
     * table payments
       | payment | date         | currency |
-      | 172100  | '2019-02-02' | 'RUB'    |
-      | 172100  | '2019-03-02' | 'RUB'    |
-      | 172100  | '2019-04-02' | 'RUB'    |
-      | 172100  | '2019-05-02' | 'RUB'    |
-      | 172100  | '2019-06-02' | 'RUB'    |
-      | 140760  | '2019-02-02' | 'RUB'    |
+      | 172100  | '2019-02-01' | 'RUB'    |
+      | 172100  | '2019-03-01' | 'RUB'    |
+      | 172100  | '2019-04-01' | 'RUB'    |
+      | 172100  | '2019-05-01' | 'RUB'    |
+      | 172100  | '2019-06-01' | 'RUB'    |
+      | 140760  | '2019-07-01' | 'RUB'    |
 
   Scenario: create loan and fully pay
     #create client
