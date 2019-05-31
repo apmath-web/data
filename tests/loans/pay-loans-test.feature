@@ -25,14 +25,14 @@ Feature: Create client integration test
     When method post
     Then status 201
     And def id = response.id
-    And match response == { id:2 }
+    And match response == { id:#number }
 
     #create loan
     Given url 'http://localhost:8083/v1'
     And request {"applicationId":4,"amount":1000000,"date":"2019-01-01","term":6,"currency":"RUB"}
     When method post
     Then status 200
-    And match response == { id:1 }
+    And match response == { id:#number }
 
     #1 payment
     Given url 'http://localhost:8083/v1'
