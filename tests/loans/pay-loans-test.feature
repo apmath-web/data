@@ -9,7 +9,7 @@ Feature: Create client integration test
       | 172100  | '2019-04-02' | 'RUB'    |
       | 172100  | '2019-05-02' | 'RUB'    |
       | 172100  | '2019-06-02' | 'RUB'    |
-      | 172100  | '2019-02-02' | 'RUB'    |
+      | 140760  | '2019-02-02' | 'RUB'    |
 
   Scenario: create loan and fully pay
     #create client
