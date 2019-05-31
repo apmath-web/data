@@ -3,24 +3,25 @@ Feature: Create client integration test
   Background:
     * configure headers = { 'Content-Type': 'application/json' }
     * table payments
-      | {"payment":172100,"date":"2019-02-02","currency":"RUB"} |
-      | {"payment":172100,"date":"2019-03-02","currency":"RUB"} |
-      | {"payment":172100,"date":"2019-04-02","currency":"RUB"} |
-      | {"payment":172100,"date":"2019-05-02","currency":"RUB"} |
-      | {"payment":172100,"date":"2019-06-02","currency":"RUB"} |
-      | {"payment":140760,"date":"2019-07-02","currency":"RUB"} |
+      | payment | date         | currency |
+      | 172100  | '2019-02-02' | 'RUB'    |
+      | 172100  | '2019-03-02' | 'RUB'    |
+      | 172100  | '2019-04-02' | 'RUB'    |
+      | 172100  | '2019-05-02' | 'RUB'    |
+      | 172100  | '2019-06-02' | 'RUB'    |
+      | 172100  | '2019-02-02' | 'RUB'    |
 
   Scenario: create loan and fully pay
     #create client
     Given url 'http://localhost:8080/v1'
-    And request {"firstName":"A","lastName":"B","birthDate":"2005-05-30","passport":{"series":4356,"number":351360},"jobs":[],"sex":"male","maritalStatus":"single","children":0}
+    And request {"firstName":"A","lastName":"B","birthDate":"2005-05-30","passport":{"series":9999,"number":999999},"jobs":[],"sex":"male","maritalStatus":"single","children":0}
     When method post
     Then status 201
     And match response == { id:1 }
 
     #create 2nd client
     Given url 'http://localhost:8080/v1'
-    And request {"firstName":"A","lastName":"B","birthDate":"2005-05-30","passport":{"series":1234,"number":123456},"jobs":[],"sex":"male","maritalStatus":"single","children":0}
+    And request {"firstName":"A","lastName":"B","birthDate":"2005-05-30","passport":{"series":9998,"number":999998},"jobs":[],"sex":"male","maritalStatus":"single","children":0}
     When method post
     Then status 201
     And def id = response.id
