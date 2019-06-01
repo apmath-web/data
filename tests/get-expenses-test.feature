@@ -13,11 +13,11 @@ Feature: Create expenses integration test
 
 Examples:
       | request                                                                                                                                                                                                                                                       |
-	| {"coBorrowers": [2,3]}                                |
+	| {"coBorrowers": [2,3]}                              |
 	| {"coBorrowers": [5]}                                |
-	| {"coBorrowers": [9,7]}                                |
-	| {"coBorrowers": [5,3,7,6 ]}                                |
-	| {"coBorrowers": [10, 3]}                               |
+	| {"coBorrowers": [9,7]}                              |
+	| {"coBorrowers": [5,3,7,6 ]}                         |
+	| {"coBorrowers": [10, 3]}                            |
 
 
 Scenario Outline: negative client's ID case
@@ -29,11 +29,11 @@ Scenario Outline: negative client's ID case
 
 Examples:
       | request                                                                                                                                                                                                                                                       |
-	| {"coBorrowers": [2,3]}                                |
+	| {"coBorrowers": [2,3]}                              |
 	| {"coBorrowers": [5]}                                |
-	| {"coBorrowers": [9,7]}                                |
-	| {"coBorrowers": [5,3,7,6 ]}                                |
-	| {"coBorrowers": [1,10, 3]}                               |
+	| {"coBorrowers": [9,7]}                              |
+	| {"coBorrowers": [5,3,7,6 ]}                         |
+	| {"coBorrowers": [1,10, 3]}                          |
 
                              
 
@@ -46,11 +46,11 @@ Scenario Outline: Coborrower's negstive ID case
 
 Examples:
       | request                                                                                                                                                                                                                                                       |
-	| {"coBorrowers": [-2,3]}                                |
+	| {"coBorrowers": [-2,3]}                              |
 	| {"coBorrowers": [-5]}                                |
-	| {"coBorrowers": [9,-7]}                                |
-	| {"coBorrowers": [5,3,7,-6 ]}                                |
-	| {"coBorrowers": [-10, -3]}                               |
+	| {"coBorrowers": [9,-7]}                              |
+	| {"coBorrowers": [5,3,7,-6 ]}                         |
+	| {"coBorrowers": [-10, -3]}                           |
 
 
 Scenario Outline: Coborrower's ID eqaul case
@@ -63,10 +63,10 @@ Scenario Outline: Coborrower's ID eqaul case
 Examples:
       | request                                                                                                                                                                                                                                                       |
 	| {"coBorrowers": [3,3]}                                |
-	| {"coBorrowers": [5, 2, 5]}                                |
+	| {"coBorrowers": [5, 2, 5]}                            |
 	| {"coBorrowers": [7,7]}                                |
-	| {"coBorrowers": [5,3,7,3 ]}                                |
-	| {"coBorrowers": [10, 3, 10]}                               |
+	| {"coBorrowers": [5,3,7,3 ]}                           |
+	| {"coBorrowers": [10, 3, 10                            |
 
 
 
