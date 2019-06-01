@@ -31,6 +31,7 @@ script:
   - java -jar karate.jar create-client-test.feature
   - java -jar karate.jar get-client-test.feature
   - java -jar karate.jar update-client-test.feature
+  - java -jar karate.jar get-expenses-test.feature
   - cd ..
   - 'x=`ls data/sql | wc -l`; while [ $x -gt 0 ]; do docker-compose run migrate down; x=$(($x-1)); done'
   - docker-compose down
