@@ -25,7 +25,7 @@ Scenario Outline: negative client's ID case
     And request <request>
     When method post
     Then status 400
-    And match response == {"description":null,"message":"Client's ID is negative"}
+    And match response == {"description":[{"clientId":"Is negative"}],"message":"Param error"}
 
 Examples:
       | request                                                                                                                                                                                                                                                       |
@@ -42,7 +42,7 @@ Scenario Outline: Coborrower's negstive ID case
     And request <request>
     When method post
     Then status 400
-    And match response == {"description":[{"coBorrowers":"Is negative"}],"message":"validation error"}
+    And match response == {"description":[{"coBorrowers":"Is negative"}],"message":"Validation error"}
 
 Examples:
       | request                                                                                                                                                                                                                                                       |
@@ -58,7 +58,7 @@ Scenario Outline: Coborrower's ID eqaul case
     And request <request>
     When method post
     Then status 400
-    And match response == {"description":[{"coBorrowers":"IDs are equal to each other"}],"message":"validation error"}
+    And match response == {"description":[{"coBorrowers":"IDs are equal to each other"}],"message":"Validation error"}
 
 Examples:
       | request                                                                                                                                                                                                                                                       |
@@ -66,7 +66,22 @@ Examples:
 	| {"coBorrowers": [5, 2, 5]}                            |
 	| {"coBorrowers": [7,7]}                                |
 	| {"coBorrowers": [5,3,7,3 ]}                           |
-	| {"coBorrowers": [10, 3, 10                            |
+	| {"coBorrowers": [10, 3, 10]}                          |
 
+
+ Scenario Outline:  Coborrower's ID eqaul to client's ID case
+    Given path 1
+    And request <request>
+    When method post
+    Then status 400
+    And match response == {"description":[{"coBorrowers":"Client's ID is equal to coborrower's ID"}],"message":"Validation error"}
+
+Examples:
+      | request                                                                                                                                                                                                                                                       |
+	| {"coBorrowers": [1,3]}                              |
+	| {"coBorrowers": [1]}                                |
+	| {"coBorrowers": [9,1]}                              |
+	| {"coBorrowers": [5,1,7,6 ]}                         |
+	| {"coBorrowers": [10, 1]}                            |
 
 
