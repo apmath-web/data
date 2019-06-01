@@ -1,4 +1,4 @@
-Feature: Create client integration test
+Feature: Create payment writeoff integration test
 
   Background:
     * configure headers = { 'Content-Type': 'application/json' }
