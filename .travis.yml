@@ -36,3 +36,4 @@ script:
   - cd ..
   - 'x=`ls data/sql | wc -l`; while [ $x -gt 0 ]; do docker-compose run migrate down; x=$(($x-1)); done'
   - docker-compose down
+
